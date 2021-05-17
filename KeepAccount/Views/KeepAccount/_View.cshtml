@@ -1,0 +1,30 @@
+﻿@model List<Expenditure>
+
+<div style="border:2px #ccc solid; border-radius: 10px; padding: 7px; height: 340px; overflow: auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expenditure in Model)
+            {
+                <tr>
+                    @{
+                        var date = expenditure.Date.HasValue? expenditure.Date.Value.ToShortDateString() : string.Empty;
+                    }
+                    <td>@date</td>
+                    <td>@expenditure.Name</td>
+                    <td>@expenditure.Type</td>
+                    <td>@expenditure.Amount</td>
+                    <td>@expenditure.Note</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
